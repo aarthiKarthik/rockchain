@@ -24,11 +24,11 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 var Web3 = require("web3");
-var defaultnode = "https://nextmem.blockchain.azure.com:3200/uV2C2fW3c_xHzwaMi7_bgcTl";
+var defaultnode = "https://pcmem1.blockchain.azure.com:3200/fFAw25mr7QctChlP3FTSKP6Q";
 //var defaultnode = "https://auxmem.blockchain.azure.com:3200/GB25eo_aW7NKzg9-OsbtOH9e";
 //var defaultnode = "https://auxmem:Grantdemo123456!@auxmem.blockchain.azure.com:3200";
 //var myAccount = '0xb4c4477c2be258cd9a8f12cd39e66d36322cfe44';
-var myAccount = '0xef8a373147679b64bfa6a31133b45666cb9b553e';
+var myAccount = '0x4e37b46d8c31325c51986f142ca0e9e7a213936a';
 var myPassword = 'Grantdemo123456!';
 
 module.exports = {
@@ -45,16 +45,16 @@ module.exports = {
   networks: {
     defaultnode: {
         //provider: new Web3.providers.HttpProvider(defaultnode),
-	provider:(() =>  {
-            const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-	    const web3 = new Web3(AzureBlockchainProvider);
-	    web3.eth.personal.unlockAccount(myAccount, myPassword, 0);
-	    return AzureBlockchainProvider;
-	})(),
-	network_id: "*",
-        gas: 0,
-        gasPrice: 0
-    },
+      provider:(() =>  {
+        const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
+        const web3 = new Web3(AzureBlockchainProvider);
+        web3.eth.personal.unlockAccount(myAccount, myPassword, 0);
+        return AzureBlockchainProvider;
+    })(),
+    network_id: "*",
+    gas: 0,
+    gasPrice: 0
+  },
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal
