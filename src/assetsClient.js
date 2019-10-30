@@ -23,7 +23,8 @@ erc20Contract.setProvider(provider);
         web3.eth.defaultAccount = coinbase;
     });
 
-    erc20Instance = await erc20Contract.deployed();
+    //erc20Instance = await erc20Contract.deployed();
+    erc20Instance = await erc20Contract.at("0xCe31e93985640CEaae42B797528c80f580D19745");
     erc20InstanceAddress = erc20Instance.address;
 
     console.log('Connected to EYCoin contract at ');
