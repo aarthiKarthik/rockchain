@@ -1,7 +1,8 @@
 const contract = require('truffle-contract');
 const Web3 = require('web3');
 const path = require('path');
-const jsonfile = require("jsonfile");
+//const jsonfile = require("jsonfile");
+var pointsObj = require("./pointsObj.json");
 
 var contractPath;
 
@@ -36,12 +37,28 @@ erc20Contract.setProvider(provider);
 
 module.exports = {
     getBalance: async(accId) => {
-        acc = (await web3.eth.getAccounts())[accId];
+        acc = await (web3.eth.getAccounts());
+        console.log(acc[accId]);
+        try {
+            //return balance
+            let balance = Number(await erc20Instance.balanceOf(acc[accId]));
+            return Promise.resolve(balance);
+        }catch(e){
+            return Promise.reject(e);
+        }
+    },
+
+    getBalanceAll: async() => {
+        acc = await web3.eth.getAccounts();
         console.log(acc);
         try {
-            //check balance
-            let balance = Number(await erc20Instance.balanceOf(acc));
-            return Promise.resolve(balance);
+            for (i = 1; i < acc.length; i++)
+            {
+                //collate balance into JSON obj
+                let balance = Number(await erc20Instance.balanceOf(acc[i]));
+                pointsObj.coins[i-1].points = balance;
+            }
+            return Promise.resolve(pointsObj);
         }catch(e){
             return Promise.reject(e);
         }
@@ -52,7 +69,7 @@ module.exports = {
         console.log("Transfer from " + web3.eth.defaultAccount + " to " + acc);
         try {
             //check balance
-            let res = Number(await erc20Instance.transfer(acc, amt, {from: web3.eth.defaultAccount}));
+            let res = (await erc20Instance.transfer(acc, amt, {from: web3.eth.defaultAccount}));
             return Promise.resolve(res);
         }catch(e){
             return Promise.reject(e);
