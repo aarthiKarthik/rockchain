@@ -1,0 +1,21 @@
+<div class="ey_music_container">
+    <div class="ey_music_row">
+        <div class="ey_music_col-xs-12">
+            <p class="section_title">Top Picks</p>
+        </div>
+    </div>
+
+    <div class="ey_music_row">
+        <div class="ey_music_col-xs-12">
+            <div  class="swiper-container" [swiper]="homeSwiper" [(index)]="index">
+                <div class="swiper-wrapper" >
+                    <div *ngFor="let pick of _topThree" class="swiper-slide album med" [routerLink]="['music', pick.artist_id]">
+                        <h3>{{pick.playlists[0].name}}</h3>
+                        <p>{{pick.artist}}</p>
+                        <img src="/assets/images/{{pick.playlists[0].cover}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

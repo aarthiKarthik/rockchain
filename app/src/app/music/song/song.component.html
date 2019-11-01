@@ -1,0 +1,54 @@
+<section *ngFor="let artist of _artistData" class="eybcmp-song">
+    <div *ngFor="let playlist of artist.playlists">
+        <div class="bgimg">
+            <img src="/assets/images/{{playlist.cover}}">
+        </div>
+        <div class="ey_music_layout">
+            <div class="ey_music_container">
+                <div class="ey_music_row">
+                    <div class="ey_music_col-xs-12">
+                        <div class="section_title">
+                            <h1> 
+                                <a (click)="goBack()"> <span class="icon-back"></span> </a>
+                                {{playlist.name}}
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ey_music_row">
+                    <div class="ey_music_col-xs-12">
+                        <div class="song_item">
+                            <div cdkDropListGroup class="dragBoundary">
+                                <div class="icon_wrapper" cdkDropList [cdkDropListData]="score_vote" (cdkDropListDropped)="onDrop($event)">
+                                    <span *ngFor="let item of score_vote" class="icon-token" data-points="+5" cdkDrag cdkDragBoundary=".dragBoundary"></span>
+                                </div>
+                                <div class="album big song" cdkDropList [cdkDropListData]="score_song" (cdkDropListDropped)="onDrop($event)">        
+                                    <h2>{{_songData.name}}</h2>
+                                    <p>{{artist.artist}}</p>
+                                    <span [ngClass]="status ? 'icon-pause' : 'icon-play'" (click)="onPausedPressed()"></span>
+                                    <img src="/assets/images/{{playlist.cover}}">
+                                    <span class="icon-token done" *ngIf="dropAnimation" [class.animateMe]="startAnimation" [attr.data-points]="_newpoints">
+                                            <span class="value-progress">
+                                                <span class="value-bar left"></span>
+                                                <span class="value-bar right"></span>
+                                            </span>
+                                        </span>
+                                    <span *ngIf="song_prev" class="icon-prev" (click)="goToPrevSong()"></span>
+                                    <span *ngIf="song_next" class="icon-next" (click)="goToNextSong()"></span>
+                                    <span *ngIf="!song_prev" class="icon-prev disabled"></span>
+                                    <span *ngIf="!song_next" class="icon-next disabled"></span>
+                                </div>
+                            </div>
+                            <div id="waveform"></div>
+                            <div class="song_timing">
+                                <span>{{song_currentTime}}</span>
+                                <span>{{_songData.duration}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

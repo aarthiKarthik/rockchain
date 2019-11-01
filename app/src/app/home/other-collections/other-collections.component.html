@@ -1,0 +1,21 @@
+<div class="ey_music_container">
+    <div class="ey_music_row">
+        <div class="ey_music_col-xs-12">
+            <p class="section_title">Other Collections</p>
+        </div>
+    </div>
+
+    <div class="ey_music_row">
+        <div class="ey_music_col-xs-12">
+            <div  class="swiper-container" [swiper]="homeSwiper" [(index)]="index">
+                <div class="swiper-wrapper">
+                    <div *ngFor="let other of _btmSeven, let i = index" class="swiper-slide album small" [routerLink]="['music', other.artist_id]">
+                        <h3>{{other.playlists[0].name}}</h3>
+                        <p>{{other.artist}}</p>
+                        <img src="/assets/images/{{other.playlists[0].cover}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

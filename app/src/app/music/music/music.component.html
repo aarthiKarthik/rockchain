@@ -1,0 +1,59 @@
+<section *ngFor="let artist of _artistData" class="eybcmp-music">
+    <div *ngFor="let playlist of artist.playlists">
+        <div class="bgimg">
+            <img src="/assets/images/{{playlist.cover}}">
+        </div>
+        <div class="ey_music_layout">
+            <div class="ey_music_container">
+                <div class="ey_music_row">
+                    <div class="ey_music_col-xs-12 dragBoundary" cdkDropListGroup>
+                        <div class="section_title" cdkDropList [cdkDropListData]="score_vote" (cdkDropListDropped)="onDrop($event)">
+                            <a (click)="goBack()"> <span class="icon-back"></span> </a>
+                            <span *ngFor="let item of score_vote" class="icon-token" data-points="+10" cdkDrag cdkDragBoundary=".dragBoundary"></span>
+                        </div>
+                        <div class="album big" cdkDropList [cdkDropListData]="score_albums" (cdkDropListDropped)="onDrop($event)">
+                            <h2>{{playlist.name}}</h2>
+                            <p>{{artist.artist}}</p>
+                            <span class="icon-play" [routerLink]="[playlist.songs[0].id]"></span>
+                            <span class="icon-token done" *ngIf="dropAnimation" [class.animateMe]="startAnimation" [attr.data-points]="_newpoints">
+                                <span class="value-progress">
+                                    <span class="value-bar left"></span>
+                                    <span class="value-bar right"></span>
+                                </span>
+                            </span>
+                            <img src="/assets/images/{{playlist.cover}}"> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ey_music_row">
+                    <div class="ey_music_col-xs-10 ey_music_col-offset-1">
+                        <div class="album__desc">
+                            <p>{{playlist.desc}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ey_music_row">
+                    <div class="ey_music_col-xs-10 ey_music_col-offset-1">
+                        <div class="album__songs">
+                            <div *ngFor="let song of playlist.songs" class="album__songs__song" [routerLink]="[song.id]">
+                                <div class="song_icon">
+                                    <span class="icon-music"></span>
+                                </div>
+                                <div class="song_deets">
+                                    <div class="song_deets_title">
+                                        <p>{{song.name}} <br> {{artist.artist}} </p>
+                                    </div>
+                                    <div class="song_deets_length">
+                                        <p>{{song.duration}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
