@@ -9,17 +9,17 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class PointsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  private getBalance = 'http://localhost:3000/coins';
-  private transfer = 'http://localhost:3000/coins';
+  private getBalance = 'http://localhost:3200/getBalanceAll';
+  private transfer = 'http://localhost:3200/transfer';
 
   public getPoints(){
     return this.http.get(`${this.getBalance}`).pipe(retry(3), catchError(this.handleError));
   }
 
   public patchPoints(id: number, value: number){
-    return this.http.patch(`${this.transfer}/${id}`, {points: value}, {
+    return this.http.post(`${this.transfer}/${id}/`, {points: value}, {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       })

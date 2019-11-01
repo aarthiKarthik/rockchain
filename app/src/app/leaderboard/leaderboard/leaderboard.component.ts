@@ -11,7 +11,7 @@ import { GetAlbumsService } from '../../services';
 })
 export class LeaderboardComponent implements OnInit {
 
-  _leaderboards:any = [];
+  _leaderboards:any;
   _albums:any = [];
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -47,7 +47,7 @@ export class LeaderboardComponent implements OnInit {
     this.points.getPoints().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
       this._leaderboards = data;
       this.albums.getAlbums().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
-        this._albums = this.merge(this._leaderboards, data).sort(this.dynamicSort("points")).reverse();
+        this._albums = this.merge(this._leaderboards.coins, data).sort(this.dynamicSort("points")).reverse();
       })
     })
   }
@@ -57,7 +57,7 @@ export class LeaderboardComponent implements OnInit {
       this.points.getPoints().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
         this._leaderboards = data;
         this.albums.getAlbums().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
-          this._albums = this.merge(this._leaderboards, data).sort(this.dynamicSort("points")).reverse();
+          this._albums = this.merge(this._leaderboards.coins, data).sort(this.dynamicSort("points")).reverse();
         })
       })
     }, 5000)

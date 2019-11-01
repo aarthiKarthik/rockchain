@@ -12,7 +12,8 @@ import { GetAlbumsService } from '../../services';
 export class TopPicksComponent implements OnInit, OnDestroy {
 
   _albums = [];
-  _points = [];
+  _coins: any;
+  _points:any;
   _topThree = [];
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -34,10 +35,11 @@ export class TopPicksComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.points.getPoints().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
-      this._points = data.sort(this.dynamicSort('points')).reverse().slice(0,3);
+      this._points = data;
+      this._coins = this._points.coins.sort(this.dynamicSort('points')).reverse().slice(0,3);
       this.albums.getAlbums().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
         this._albums = data;
-        this._topThree = this._albums.filter(o1 => this._points.some(o2 => o1.id === o2.id));
+        this._topThree = this._albums.filter(o1 => this._coins.some((o2: { id: any; }) => o1.id === o2.id));
       })
     })
   }

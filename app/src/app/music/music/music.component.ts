@@ -18,6 +18,7 @@ export class MusicComponent implements OnInit, OnDestroy {
   _artist: string;
   _artistData: any;
   _points: any;
+  _coins: any;
   _newpoints: number;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -59,10 +60,11 @@ export class MusicComponent implements OnInit, OnDestroy {
 
       setTimeout(() => {
         this.points.getPoints().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
-          this._points = data.filter(point => {
+          this._points = data
+          this._coins = this._points.coins.filter((point: { id: any; }) => {
             return point.id === this._artistData[0].id;
           });
-          this._newpoints = this._points[0].points
+          this._newpoints = this._coins[0].points
         })
       }, 5000);
     }

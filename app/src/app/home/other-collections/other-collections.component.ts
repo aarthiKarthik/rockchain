@@ -13,7 +13,8 @@ export class OtherCollectionsComponent implements OnInit, OnDestroy {
 
   other_collections = [];
   _albums = [];
-  _points = [];
+  _points:any;
+  _coins:any;
   _btmSeven = [];
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -35,10 +36,11 @@ export class OtherCollectionsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.points.getPoints().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
-      this._points = data.sort(this.dynamicSort('points')).reverse().slice(3, data.length);
+      this._points = data
+      this._coins = this._points.coins.sort(this.dynamicSort('points')).reverse().slice(3, data.length);
       this.albums.getAlbums().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
         this._albums = data;
-        this._btmSeven = this._albums.filter(o1 => this._points.some(o2 => o1.id === o2.id));
+        this._btmSeven = this._albums.filter(o1 => this._coins.some((o2: { id: any; }) => o1.id === o2.id));
       })
     })
   }
