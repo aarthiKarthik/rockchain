@@ -1,0 +1,34 @@
+@import "./_variables"
+
+$numColumns: 12
+$gutterWidth: $padding_big
+
+.ey_music_layout
+    width: 100%
+    .ey_music_container
+        width: 100%
+        .ey_music_row
+            width: 100%
+            display: grid
+            grid-template-columns: repeat($numColumns, 5fr)
+            grid-gap: $gutterWidth
+            &.vertical_align
+                align-items: center
+            &.no-gap
+                grid-gap: 0
+            @each $size, $abbr in (0,xs),(768px,sm),(992px,md),(1200px,lg)
+                @media (min-width: $size)
+                    @for $i from 1 through $numColumns
+                        .ey_music_col-#{$abbr}-#{$i}
+                            grid-column-end: span $i
+                            &.flushed-left
+                                justify-self: end
+                            &.flushed-center
+                                justify-self: center
+                            &.vertical-center
+                                align-self: center
+                            &.bottom
+                                align-self: end
+                            @for $x from 1 through ($numColumns - $i)
+                                &.ey_music_col-offset-#{$x}
+                                    grid-column-start: $x+1

@@ -1,0 +1,547 @@
+body
+    color: $off_white
+    height: auto
+    width: auto
+    margin: 0
+    background: linear-gradient(180deg, rgba(0,37,116,1) 0%, rgba(0,0,0,1) 100%)
+    background-repeat: no-repeat
+h1
+    @include font-size(80)
+    line-height: normal
+    font-weight: 900
+    margin: 0
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.55)
+    margin-bottom: $margin_big*2
+h2, h3
+    font-weight: 900
+    margin: 0
+p
+    @include font-size(42)
+    margin: 0 0 $margin 0
+    font-weight: 400
+    strong
+        font-weight: 600
+    &:last-child, &:last-of-type
+        margin: 0
+a
+    color: inherit
+    text-decoration: none
+.albums
+    display: flex
+    &.leaderboard
+        flex-direction: column
+        display: flex
+        .album
+            padding: 0
+            margin: 0 0 $margin_big/2 0
+            display: flex
+            flex-direction: unset
+            align-items: center
+            border-radius: 0
+            overflow: hidden
+            background-color: transparent
+            &__img
+                width: 130px
+                height: 130px
+                margin-left: -50px
+                position: relative
+                z-index: 0
+                border-top-left-radius: 14px
+                border-bottom-left-radius: 14px
+                overflow: hidden
+                img
+                    position: relative
+                    border-radius: 14px
+            &__index
+                width: 100px
+                height: 100px
+                border-radius: 50%
+                display: flex
+                justify-content: center
+                align-items: center
+                background-color: #000
+                box-shadow: 0px 0px 3px rgba(0,0,0,1)
+                @include font-size(40)
+                line-height: normal
+                font-weight: 900
+                color: #00F0A6
+                position: relative
+                z-index: 1
+            &__deets
+                flex: 1
+                height: 130px
+                padding: 0 $padding/2 0 #{($padding/2) + 15px} 
+                display: flex
+                align-items: center
+                background-color: rgba(0,0,0,0.45)
+                border-top-right-radius: 14px
+                border-bottom-right-radius: 14px
+                margin-left: -15px
+                &__left
+                    flex: 1
+                    p
+                        text-shadow: none
+                        &.title
+                            @include font-size(30)
+                            font-weight: 900
+                            line-height: normal
+                            margin: 0
+                        &.artist
+                            @include font-size(18)
+                            font-weight: 400
+                            line-height: normal
+                &__right
+                    display: flex
+                    p
+                       @include font-size(40)
+                       font-weight: 700
+                       line-height: normal 
+                       text-shadow: 0px 0px 3px #fff
+                    span.icon-token
+                        width: auto
+                        height: auto
+                        animation: none 
+                        border-radius: unset
+                        border: unset
+                        box-shadow: unset
+                        text-shadow: unset
+                        position: unset
+                        left: auto
+                        font-size: 55px
+                        &:before
+                            animation: none 
+                            text-shadow: unset
+            &:nth-child(-n+3)
+                .album__index
+                    color: #007E57
+                    background-color: #00F0A6
+                    box-shadow: 0px 0px 3px #00F0A6
+                    @include font-size(50)
+                .album__deets
+                    background-color: rgba(0,240,166,0.45)
+                    .album__deets__right
+                        p
+                            @include font-size(60)
+                            line-height: normal
+                        span.icon-token
+                            font-size: 70px
+            &:last-child
+                margin: 0
+.album
+    position: relative
+    z-index: 2
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1)
+    padding: $padding_big
+    display: flex
+    justify-content: center
+    flex-direction: column 
+    text-align: left
+    background-color: rgba(0,240,166, 0.2)
+    border-radius: $radius
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 0
+        border-radius: $radius
+        transition: all 0.2s ease-in-out 
+    h2, h3, p
+        position: relative
+        z-index: 1
+        text-shadow: 0px 0px 20px rgba(0,0,0,1)
+    span.icon-play, span.icon-pause
+        position: relative
+        z-index: 2
+        border-radius: 50%
+        border: 6px solid #fff
+        margin-top: $margin*2
+        width: 120px
+        height: 120px
+        display: flex
+        justify-content: center
+        align-items: center
+        box-shadow: 0px 0px 6px rgba(255,255,255,1)
+        &:before
+            text-shadow: 0px 0px 6px rgba(255,255,255,1)
+    &.big
+        max-width: 920px
+        height: calc(920px - #{$padding_big*2})
+        margin: 0 auto
+        transition: all 0.2s ease-in-out
+        h2
+            @include font-size(100)
+            line-height: normal
+            min-height: 256px
+        p
+            @include font-size(46)
+            line-height: normal
+            font-weight: 600
+            margin: 0
+        &.song
+            margin-bottom: $margin
+            max-width: 900px
+            height: calc(900px - #{$padding_big*2})
+            overflow: initial
+            h2
+                @include font-size(72)
+                line-height: normal
+                min-height: 180px
+            p
+                @include font-size(40)
+                line-height: normal
+            span.icon-next, span.icon-prev
+                position: absolute
+                z-index: 2
+                top: 50%
+                transform: translateY(-50%)
+                @include font-size(80)
+                line-height: normal
+                &.disabled
+                    opacity: 0.25
+            span.icon-prev
+                left: -125px
+            span.icon-next
+                right: 160px
+    &.med
+        width: 570px
+        height: 570px
+        h3
+            @include font-size(72)
+            line-height: normal
+            min-height: 182px
+        p
+            line-height: normal
+            font-weight: 600
+            margin: 0
+    &.small
+        width: 300px
+        height: 300px
+        h3
+            @include font-size(45)
+            line-height: normal
+            min-height: 115px
+        p
+            @include font-size(26)
+            line-height: normal
+            font-weight: 600
+            margin: 0
+    &__desc
+        margin: $margin 0
+        p
+            @include font-size(40)
+            line-height: normal
+    &__songs
+        position: relative
+        z-index: 2
+        &__song
+            margin-bottom: $margin
+            display: flex
+            justify-content: center
+            .song_icon
+                display: flex
+                align-items: center
+                span
+                    @include font-size(90)
+                    line-height: normal
+            .song_deets
+                flex: 1
+                display: flex
+                padding-left: $padding
+                .song_deets_title
+                    display: flex
+                    align-items: center
+                    flex: 1
+                    p
+                        @include font-size(40)
+                        line-height: normal
+                .song_deets_length
+                    display: flex
+                    align-items: center
+                    p
+                        @include font-size(40)
+                        line-height: normal
+            &:last-child
+                margin-bottom: 0
+
+
+.cdk-drop-list
+    &.cdk-drop-list-receiveing
+        // 
+    &.cdk-drop-list-dragging
+        h2, p, span.icon-play, span.icon-pause
+            opacity: 0.2
+        img
+            opacity: 0.5
+            filter: blur(8px) grayscale(100%)
+
+span.icon-token
+    width: 150px
+    height: 150px
+    @include font-size(100)
+    line-height: normal
+    border-radius: 50%
+    border: 6px solid #fff
+    box-shadow: 0px 0px 6px rgba(255,255,255,1)
+    position: absolute
+    left: calc(50% - 81px)
+    animation: pulse 2s infinite
+    display: flex
+    justify-content: center
+    align-items: center
+    &:before
+        top: 0
+        text-shadow: 0px 0px 6px rgba(255,255,255,1)
+        animation: pulse2 2s infinite
+    &.cdk-drag-preview
+        animation: none
+        cursor: grab
+        color: #00F0A6
+        border: 6px solid #00F0A6
+        box-shadow: 0px 0px 6px #00F0A6
+        display: flex
+        justify-content: center
+        align-items: center
+        animation: pulse_preview 2s infinite
+        &:before
+            text-shadow: 0px 0px 6px #00F0A6
+            position: absolute
+            top: -120px
+            font-size: 100px
+            line-height: normal
+            animation: pulse_preview2 2s infinite
+        &:after
+            content: attr(data-points)
+            @include font-size(60)
+            font-weight: 900
+            line-height: normal
+            text-shadow: 0px 0px 12px #00F0A6
+
+.cdk-drag-animating
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1)
+
+@keyframes pulse
+    0%
+        box-shadow: 0px 0px 100px rgba(255,255,255, 0.8)
+    50%
+        box-shadow: 0px 0px 60px rgba(255,255,255,0.4)
+    100%
+        box-shadow: 0px 0px 100px rgba(255,255,255,0.8)
+@keyframes pulse2
+    0%
+        text-shadow: 0px 0px 10px rgba(255,255,255, 0.8)
+    50%
+        text-shadow: 0px 0px 5px rgba(255,255,255,0.2)
+    100%
+        text-shadow: 0px 0px 10px rgba(255,255,255, 0.8)
+
+@keyframes pulse_preview
+    0%
+        box-shadow: 0px 0px 100px rgba(0,240,166, 0.8)
+    50%
+        box-shadow: 0px 0px 60px rgba(0,240,166,0.4)
+    100%
+        box-shadow: 0px 0px 100px rgba(0,240,166,0.8)
+@keyframes pulse_preview2
+    0%
+        text-shadow: 0px 0px 10px rgba(0,240,166, 0.8)
+    50%
+        text-shadow: 0px 0px 5px rgba(0,240,166, 0.2)
+    100%
+        text-shadow: 0px 0px 10px rgba(0,240,166, 0.8)
+
+@keyframes animateDone
+    0%
+        content: '5'
+    20%
+        content: '4'
+    40%
+        content: '3'
+    60%
+        content: '2'
+    80%
+        content: '1'
+    100%
+        content: attr(data-points)
+@keyframes animateTokenDone
+    0%
+        content: '\e906'
+        opacity: 0
+        top: calc(50% - 30px)
+    50%
+        content: '\e906'
+        opacity: 0
+    100%
+        content: '\e906'
+        top: -80px
+        opacity: 1
+
+@keyframes animateCircle_left
+    0%
+        clip: rect(0px, 120px, 0px, 60px)
+    20%
+        clip: rect(0px, 120px, 48px, 60px)
+    40%
+        clip: rect(0px, 120px, 96px, 60px)
+    60%
+        clip: rect(0px, 120px, 120px, 60px)
+    80%
+        clip: rect(0px, 120px, 120px, 60px)
+    100%
+        clip: rect(0px, 120px, 120px, 60px)
+@keyframes animateCircle_right
+    0%
+        clip: rect(120px, 60px, 120px, 0px)
+    20%
+        clip: rect(120px, 60px, 120px, 0px)
+    40%
+        clip: rect(120px, 60px, 120px, 0px)
+    60%
+        clip: rect(120px, 60px, 120px, 0px)
+    80%
+        clip: rect(48px, 60px, 120px, 0px)
+    100%
+        clip: rect(0px, 60px, 120px, 0px)
+        
+section
+    .ey_music_layout
+        position: relative
+        z-index: 2
+    .bgimg
+        width: 100%
+        height: 100vh
+        position: fixed
+        top: 0
+        left: 0
+        z-index: 1
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+    .section_title
+        padding-bottom: $padding_big
+        h1
+            position: relative
+            margin: 0
+            @include font-size(80)
+            line-height: normal
+        a
+            position: absolute
+            left: -20px
+            top: 0
+            display: flex
+            justify-content: center
+            align-items: center
+    &.eybcmp-music, &.eybcmp-song, &.eybcmp-leaderboard
+        height: calc(100vh - 160px)
+        padding: $padding_big
+    &.eybcmp-music, &.eybcmp-song
+        .bgimg
+            opacity: 0.15
+        .section_title
+            height: 150px
+        .album.cdk-drop-list
+            &.cdk-drop-list-dragging
+                span.icon-token
+                    opacity: 0.5
+                    color: #00F0A6
+                    border: 6px solid #00F0A6
+                    animation: pulse_preview 2s infinite
+                    &:before
+                        animation: pulse_preview2 2s infinite
+    &.eybcmp-leaderboard
+        .section_title
+            text-align: center
+    &.eybcmp-music, &.eybcmp-song
+        span.icon-token
+            &.done
+                top: calc(50% - 81px)
+                z-index: 2
+                animation: none
+                transition: all 0.4s ease-in-out
+                color: #00F0A6
+                border: 6px solid rgba(0,240,166, 0)
+                box-shadow: none
+                &:before
+                    animation: none
+                    content: ''
+                &:after
+                    content: attr(data-points)
+                    font-size: 0px
+                    line-height: normal
+                    font-family: 'Nunito', sans-serif
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                &.animateMe
+                    width: 120px
+                    height: 120px
+                    top: -200px
+                    left: calc(50% - 66px)
+                    &:before
+                        content: '\e906'
+                        font-size: 60px
+                        position: absolute
+                        left: calc(50% - 30px)
+                        top: -80px
+                        text-shadow: none
+                        animation: animateTokenDone 1s 1 4.5s
+                    &:after
+                        font-size: 40px
+                        font-weight: 800
+                        animation: animateDone 5s 1
+                    .value-progress
+                        position: absolute
+                        width: 120px
+                        height: 120px
+                        border-radius: 50%
+                        clip: rect(auto, auto, auto, auto)
+                        .value-bar
+                            width: 120px
+                            height: 120px
+                            border-radius: 50%
+                            position: absolute
+                            border: 6px solid #00F0A6
+                            box-sizing: border-box
+                            &.left
+                                animation: animateCircle_left 4s 1 linear
+                                transform: rotate(0deg)
+                            &.right
+                                animation: animateCircle_right 4s 1 linear
+                                transform: rotate(360deg)
+
+    &.eybcmp-song
+        overflow: hidden
+        .section_title
+            h1
+                @include font-size(46)
+                line-height: normal
+                font-weight: 600
+                padding: $padding/2 0 0 #{$padding_big + $padding}
+        .song_item
+            text-align: center
+            position: absolute
+            z-index: 2
+            width: calc(100vw - 125px)
+            left: 125px
+            .icon_wrapper
+                width: calc(100vw - 125px)
+                height: 263px
+            #waveform
+                width: calc(100% - #{$padding_big})
+                margin-bottom: $margin/2
+            .song_timing
+                width: calc(100% - #{$padding_big})
+                display: flex
+                span
+                    @include font-size(30)
+                    line-height: normal
+                    font-weight: 300
+                    text-shadow: 0px 0px 3px #fff
+                    text-align: left
+                    &:first-child
+                        flex: 1
+                    &:last-child
+                        padding-right: $padding/2
