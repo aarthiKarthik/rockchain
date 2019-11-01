@@ -1,0 +1,228 @@
+[
+    {
+        "id": 1,
+        "artist": "Alumo",
+        "artist_id": "alumo",
+        "playlists": [
+            {
+                "id": "beats-rhymes",
+                "name": "Beats & Rhymes",
+                "desc": "Let the rhythms and beats lift you. Hottest tracks of today.",
+                "cover": "01_beats-rhymes@2x.png",
+                "songs": [
+                    {
+                        "id": "dreaming",
+                        "name": "Dreaming",
+                        "music": "alumo-dreaming.mp3",
+                        "duration": "02:57"
+                    }, {
+                        "id": "stars",
+                        "name": "Stars",
+                        "music": "alumo-stars.mp3",
+                        "duration": "02:27"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 2,
+        "artist": "Kevin McLeod",
+        "artist_id": "kevin_mcleod",
+        "playlists": [
+            {
+                "id": "nu-disco",
+                "name": "Nu Disco",
+                "desc": "Your funky feel good dancing album.",
+                "cover": "02_nu-disco@2x.png",
+                "songs": [
+                    {
+                        "id": "aurea-carmina",
+                        "name": "Aurea Carmina",
+                        "music": "kevin-mcleod-aurea-carmina.mp3",
+                        "duration": "03:31"
+                    }, {
+                        "id": "ether-disco",
+                        "name": "Ether Disco",
+                        "music": "kevin-mcleod-ether-disco.mp3",
+                        "duration": "02:56"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 3,
+        "artist": "Bensound",
+        "artist_id": "bensound",
+        "playlists": [
+            {
+                "id": "cinematic-escapes",
+                "name": "Cinematic Escapes",
+                "desc": "Relax with the cinematic score of a lifetime.",
+                "cover": "03_cinematic-escapes@2x.png",
+                "songs": [
+                    {
+                        "id": "elevate",
+                        "name": "Elevate",
+                        "music": "bensound-elevate.mp3",
+                        "duration": "03:29"
+                    }, {
+                        "id": "tomorrow",
+                        "name": "Tomorrow",
+                        "music": "bensound-tomorrow.mp3",
+                        "duration": "04:54"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 4,
+        "artist": "Amaria",
+        "artist_id": "amaria",
+        "playlists": [
+            {
+                "id": "electro-swing",
+                "name": "Electro Swing",
+                "desc": "Expertly curated sounds of modern vintage.",
+                "cover": "04_electro-swing@2x.png",
+                "songs": [
+                    {
+                        "id": "funky-souls",
+                        "name": "Funky Souls",
+                        "music": "amaria-funky-souls.mp3",
+                        "duration": "02:42"
+                    }, {
+                        "id": "lovely-swindler",
+                        "name": "Lovely Swindler",
+                        "music": "amaria-lovely-swindler.mp3",
+                        "duration": "03:34"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 5,
+        "artist": "Bravelion",
+        "artist_id": "bravelion",
+        "playlists": [
+            {
+                "id": "tropical-sundaes",
+                "name": "Tropical Sundaes",
+                "desc": "Keep the party going with the chillout melodies.",
+                "cover": "05_tropical_sundaes@2x.png",
+                "songs": [
+                    {
+                        "id": "dreambye",
+                        "name": "Dreambye",
+                        "music": "braveLion-dreambye.mp3",
+                        "duration": "02:53"
+                    }, {
+                        "id": "tropical-flow",
+                        "name": "Tropical Flow",
+                        "music": "braveLion-tropical-flow.mp3",
+                        "duration": "03:40"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 6,
+        "artist": "Hyde",
+        "artist_id": "hyde",
+        "playlists": [
+            {
+                "id": "coffeeshop-coversations",
+                "name": "Coffeeshop Coversations",
+                "desc": "Delicate and rousing tunes for your coffeeshop conversations.",
+                "cover": "06_coffeeshop-coversations@2x.png",
+                "songs": [
+                    {
+                        "id": "and-sons",
+                        "name": "And Sons",
+                        "music": "hyde-andsons.mp3",
+                        "duration": "03:39"
+                    }, {
+                        "id": "cymbals",
+                        "name": "Cymbals",
+                        "music": "hyde-cymbals.mp3",
+                        "duration": "04:36"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 7,
+        "artist": "Nicolai Heidlas",
+        "artist_id": "nicolai_heidlas",
+        "playlists": [
+            {
+                "id": "euphoric-powder",
+                "name": "Euphoric Powder",
+                "desc": "Boost your mood for the best kinda day!",
+                "cover": "07_euphoric-powder@2x.png",
+                "songs": [
+                    {
+                        "id": "with-you",
+                        "name": "With You",
+                        "music": "nicolai-heidlas-with-you.mp3",
+                        "duration": "03:07"
+                    }, {
+                        "id": "someways",
+                        "name": "Someways",
+                        "music": "nicolai-heidlas-someways.mp3",
+                        "duration": "03:48"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 8,
+        "artist": "Audionautix",
+        "artist_id": "audionautix",
+        "playlists": [
+            {
+                "id": "the-classics",
+                "name": "The Classics",
+                "desc": "Your classic rocky road trip tracks.",
+                "cover": "08_the_classics@2x.png",
+                "songs": [
+                    {
+                        "id": "fight-scene",
+                        "name": "Fight Scene",
+                        "music": "audionautix-fight-scene.mp3",
+                        "duration": "02:20"
+                    }, {
+                        "id": "big-blues",
+                        "name": "Big Blues",
+                        "music": "audionautix-big-blues.mp3",
+                        "duration": "03:22"
+                    }
+                ]
+            }
+        ]
+    }, {
+        "id": 9,
+        "artist": "Krale",
+        "artist_id": "Krale",
+        "playlists": [
+            {
+                "id": "moodbox",
+                "name": "Moodbox",
+                "desc": "Profound and beautiful piano pieces for you to indulge.",
+                "cover": "09_moodbox@2x.png",
+                "songs": [
+                    {
+                        "id": "among-trees",
+                        "name": "Among Trees",
+                        "music": "krale-among-trees.mp3",
+                        "duration": "03:44"
+                    }, {
+                        "id": "rebirth",
+                        "name": "Rebirth",
+                        "music": "krale-rebirth.mp3",
+                        "duration": "05:28"
+                    }
+                ]
+            }
+        ]
+    }
+]
