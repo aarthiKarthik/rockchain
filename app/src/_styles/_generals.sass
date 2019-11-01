@@ -152,6 +152,24 @@ a
         position: relative
         z-index: 1
         text-shadow: 0px 0px 20px rgba(0,0,0,1)
+    .transaction
+        position: relative
+        z-index: 1
+        @include font-size(26)
+        line-height: normal
+        font-weight: 400
+        margin-top: $margin/2
+        text-shadow: none
+        .transaction_details
+            display: flex
+            &__title
+                width: 200px
+                min-width: 200px
+            &__value
+                width: 350px
+                white-space: nowrap
+                overflow: hidden
+                text-overflow: ellipsis
     span.icon-play, span.icon-pause
         position: relative
         z-index: 2
@@ -174,12 +192,13 @@ a
         h2
             @include font-size(100)
             line-height: normal
-            min-height: 256px
+            // min-height: 256px
         p
             @include font-size(46)
             line-height: normal
             font-weight: 600
             margin: 0
+
         &.song
             margin-bottom: $margin
             max-width: 900px
@@ -454,6 +473,12 @@ section
     &.eybcmp-leaderboard
         .section_title
             text-align: center
+        .footernote
+            margin: $margin 0 0 0
+            p
+                @include font-size(18)
+                line-height: normal
+                text-align: center
     &.eybcmp-music, &.eybcmp-song
         span.icon-token
             &.done

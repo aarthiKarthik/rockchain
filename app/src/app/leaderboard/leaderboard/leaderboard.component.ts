@@ -62,6 +62,7 @@ export class LeaderboardComponent implements OnInit {
       })
     }, 5000)
   }
+  
 
   ngOnDestroy() {
     this.destroy$.next(true);
