@@ -26,6 +26,20 @@
                                 <div class="album big song" cdkDropList [cdkDropListData]="score_song" (cdkDropListDropped)="onDrop($event)">        
                                     <h2>{{_songData.name}}</h2>
                                     <p>{{artist.artist}}</p>
+                                    <div class="transaction" *ngIf="_receipt">
+                                        <div class="transaction_details">
+                                            <span class="transaction_details__title">Block Hash:</span>
+                                            <span class="transaction_details__value">{{ _transaction.receipt.blockHash }}</span>
+                                        </div>
+                                        <div class="transaction_details">
+                                            <span class="transaction_details__title">Block Number:</span>
+                                            <span class="transaction_details__value">{{ _transaction.receipt.blockNumber }}</span>
+                                        </div>
+                                        <div class="transaction_details">
+                                            <span class="transaction_details__title">Block Number:</span>
+                                            <span class="transaction_details__value">{{ _transaction.receipt.transactionHash }}</span>
+                                        </div>
+                                    </div>
                                     <span [ngClass]="status ? 'icon-pause' : 'icon-play'" (click)="onPausedPressed()"></span>
                                     <img src="/assets/images/{{playlist.cover}}">
                                     <span class="icon-token done" *ngIf="dropAnimation" [class.animateMe]="startAnimation" [attr.data-points]="_newpoints">

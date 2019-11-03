@@ -24,6 +24,8 @@ export class SongComponent implements OnInit {
   _songData: any;
   _points: any;
   _coins: any;
+  _transaction: any;
+  _receipt:boolean = false;
   _newpoints: number;
 
   wave: WaveSurfer = null;
@@ -149,7 +151,10 @@ export class SongComponent implements OnInit {
       } else {
         transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
         this.animationDone();
-        this.points.patchPoints(this._artistData[0].id, 5).subscribe((data: any[]) => {});
+        this.points.patchPoints(this._artistData[0].id, 5).subscribe((data: any[]) => {
+          this._transaction = data;
+          this._receipt = true;
+        });
 
         setTimeout(() => {
           this.points.getPoints().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {

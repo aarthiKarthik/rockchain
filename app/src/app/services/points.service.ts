@@ -19,7 +19,7 @@ export class PointsService {
   }
 
   public patchPoints(id: number, value: number){
-    return this.http.post(`${this.transfer}/${id}/`, {points: value}, {
+    return this.http.post(`${this.transfer}/${id}/${value}`, {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       })
