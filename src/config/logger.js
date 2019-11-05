@@ -1,7 +1,7 @@
 var appRoot = require('app-root-path');
 var winston = require('winston');
 const fs = require('fs')
-const dir = `${appRoot.path}/logs/app.log`
+const dir = `${appRoot.path}/app.log`
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }

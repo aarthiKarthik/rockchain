@@ -11,8 +11,8 @@ export class PointsService {
 
   constructor(private http: HttpClient) {}
 
-  private getBalance = 'http://localhost:3200/getBalanceAll';
-  private transfer = 'http://localhost:3200/transfer';
+  private getBalance = 'https://pc-app-backend.azurewebsites.net/getBalanceAll';
+  private transfer = 'https://pc-app-backend.azurewebsites.net/transfer';
 
   public getPoints(){
     return this.http.get(`${this.getBalance}`).pipe(retry(3), catchError(this.handleError));
