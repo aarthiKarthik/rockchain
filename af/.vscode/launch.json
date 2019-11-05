@@ -2,6 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "runtimeVersion": "10.14.2",
+      "program": "${workspaceFolder}/src/app.js",
+      "runtimeExecutable": "${env:HOME}/.nvm/versions/node/v10.14.2/bin/node"
+    },
+    {
       "name": "Attach to Node Functions",
       "type": "node",
       "request": "attach",
