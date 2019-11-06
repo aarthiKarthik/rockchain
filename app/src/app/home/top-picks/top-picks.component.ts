@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+
+import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperScrollbarInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+
 import { PointsService } from '../../services';
 import { GetAlbumsService } from '../../services';
 
@@ -11,11 +14,25 @@ import { GetAlbumsService } from '../../services';
 })
 export class TopPicksComponent implements OnInit, OnDestroy {
 
+  index:number = 0;
   _albums = [];
   _coins: any;
   _points:any;
   _topThree = [];
   destroy$: Subject<boolean> = new Subject<boolean>();
+
+  public config: SwiperConfigInterface = {
+    direction: 'horizontal',
+    slidesPerView: 'auto',
+    initialSlide: 0,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    grabCursor: true,
+    normalizeSlideIndex: true,
+    a11y: true,
+    preventClicks: true
+  };
 
   constructor(
     private points: PointsService,

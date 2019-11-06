@@ -7,7 +7,7 @@
 
     <div class="ey_music_row">
         <div class="ey_music_col-xs-12">
-            <div  class="swiper-container" [swiper]="homeSwiper" [(index)]="index">
+            <div  class="swiper-container" [swiper]="config" [(index)]="index">
                 <div class="swiper-wrapper" >
                     <div *ngFor="let pick of _topThree" class="swiper-slide album med" [routerLink]="['music', pick.artist_id]">
                         <h3>{{pick.playlists[0].name}}</h3>

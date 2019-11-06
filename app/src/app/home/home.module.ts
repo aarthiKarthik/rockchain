@@ -9,7 +9,7 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
-const homeSwiper: SwiperConfigInterface = {
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   slidesPerView: 'auto',
   initialSlide: 0,
@@ -29,7 +29,7 @@ const homeSwiper: SwiperConfigInterface = {
   providers: [
     {
       provide: SWIPER_CONFIG,
-      useValue: homeSwiper
+      useValue: DEFAULT_SWIPER_CONFIG
     }
   ]
 })
