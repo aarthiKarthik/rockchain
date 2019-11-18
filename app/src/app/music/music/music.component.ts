@@ -71,7 +71,7 @@ export class MusicComponent implements OnInit, OnDestroy {
           });
           this._newpoints = this._coins[0].points
         })
-      }, 5000);
+      }, 6000);
     }
   }
 

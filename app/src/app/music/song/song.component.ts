@@ -164,7 +164,7 @@ export class SongComponent implements OnInit {
             });
             this._newpoints = this._coins[0].points
           })
-        }, 5000);
+        }, 6000);
       }
     }
 
@@ -174,6 +174,7 @@ export class SongComponent implements OnInit {
       if (this.wave.isPlaying()){
         this.song_currentTime_interval = setInterval(() => this.song_currentTime = this.formatTime(this.wave.getCurrentTime()), 500)
       } else {
+        this.status = false;
         clearInterval(this.song_currentTime_interval);
       }
     }
